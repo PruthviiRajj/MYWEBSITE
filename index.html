@@ -1,0 +1,439 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+                font-family: 'Poppons', sans-serif;
+                box-sizing: border-box;
+            }
+            
+            body{
+                background: #080808;
+                color: #fff;
+                
+            }
+            #header{
+                width:100%;
+                height: 100vh;
+                background-image: url("");
+                background-size: cover;
+                background-position: center;
+            }
+            .container{
+                padding: 10px 10%;
+            }
+            .nav{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                flex-wrap: wrap;
+            }
+            nav ul li{
+                display: inline-block;
+                list-style: none;
+                margin: 10px 20px ;
+            }
+            nav ul li a{
+                color:white;
+                text-decoration: none;;
+                font-size: 18px;
+                position: relative;
+            }
+            nav ul li a::after{
+                content: '';
+                width: 0;
+                height: 3px;
+                background: #ff004f;
+                position: absolute;
+                left: 0;
+                bottom: -6px;
+                transition: 0.5s;
+            }
+            nav ul li a:hover::after{
+                width: 100%;
+            }
+            .header-text{
+                margin-top: 20%;
+                font-size: 30px;
+            }
+            .header-text h1{
+                font-size: 60px;
+                margin-top: 20px;
+            }
+            .header-text h1 span{
+                color: #ff004f;
+            }
+            /* ----------------------------------------------------about----------------------------------------- */
+            #about{
+                padding: 80px 0;
+                color: #ababab;
+            }
+            .row{
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+            }
+            .about-col-1{
+                flex-basis: 35%;
+            }
+            .about-col-1 img{
+                width: 70%;
+                height: 80%;
+                border-radius: 80px;
+            }
+            .about-col-2{
+                flex-basis: 60%;
+            }
+            .sub-title{
+                font-size: 60px;
+                font-weight: 600;
+                color: #fff;
+            }
+            h1{
+                text-align: center;
+                font-size: 150px;
+            }
+            .tab-titles{
+                display: flex;
+                margin: 20px 0 40px;
+            }
+            .tab-links{
+                margin-right: 50px;
+                font-size: 18px;
+                font-weight: 500;
+                cursor: pointer;
+                position: relative;
+            }
+            .tab-links::after{
+                content: '';
+                width: 0;
+                height: 3px;
+                background: #ff004f;
+                position: absolute;
+                left: 0;
+                bottom: -8px;
+                transition: 0.5s;
+            }
+            .tab-links.active-link::after{
+                width: 50%;
+            }
+            .tab-contents ul li{
+                list-style: none;
+                margin: 10px 0;   
+            }
+            .tab-contents ul li span{
+                color: #b54769;
+                font-size: 14px;
+            }
+            .tab-contents{
+                display: none;
+            }
+            .tab-contents.active-tab{
+                display: block;
+            }
+            /*-- -----------------------------------------------Information-------------------------------------------- */
+            #Information{
+                padding: 30px 0;
+            }
+            .info{
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                grid-gap: 40px;
+                margin-top: 50px;
+            }
+            .info div{
+                background-color: #262626;
+                padding: 40px;
+                font-size: 18px;
+                font-weight: 100;
+                border-radius: 10px;
+                transition: background 0.5s, transform 0.5s;
+            }
+            .info div i{
+            font-size: 50px;
+            margin-bottom: 30px;
+            }
+            .info div h2{
+            font-size: 30px;
+            font-weight: 500;
+            margin-bottom: 15px;
+            }
+            .info div a{
+                text-decoration: none;
+                color: #fff;
+                font-size: 12px;
+                margin-top: 20px;
+                display: inline-block;
+            }
+            .info div:hover{
+                background: #ff004f;
+                transform: translateY(-10px);
+            }
+            /*-- ------------------------------------------------- portfolio--------------------------------------- */
+            #portfolio{
+                padding: 50px;
+            }
+            .projects{
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                grid-gap: 40px;
+                margin-top: 50px;
+            }
+            .projects div{
+                background-color: #262626;
+                padding: 40px;
+                font-size: 18px;
+                font-weight: 100;
+                border-radius: 10px;
+                transition: background 0.5s, transform 0.5s;
+                }
+            .projects div i{
+                    font-size: 50px;
+                    margin-bottom: 30px;
+                    }
+            .projects div h2{
+                font-size: 30px;
+                font-weight: 500;
+                margin-bottom: 15px;
+                }
+            .projects div:hover{
+                    background: #ff004f;
+                    transform: translateY(-10px);
+                }
+            /* --------------------------------------------------- contact--------------------------------------------- */
+            .contact-left{
+                flex-basis: 35%;
+            }
+            .contact-right{
+                flex-basis: 60%;
+            }
+            .contact-left p{
+                margin-top: 30px;
+            }
+            .contact-left p i{
+                color: #ff004f;
+            margin-right: 15px;
+            font-size: 25px;
+            }
+            .social-icons{
+                margin-top: 30px;
+                margin-bottom:25px;
+            }
+            .social-icons a{
+                text-decoration: none;
+                font-size: 30px;
+                margin-right: 15px;
+                color: #ababab;
+                display: inline-block;
+                transition: transform 0.5s;
+            }
+            .social-icons a:hover{
+                color: #ff004f;
+                transform: translateY(-5x);
+            }
+            .btn.btn2{
+                display: inline-block;
+                background: #ff004f;
+                color: black;
+                text-decoration: none;
+                font-size: 18px;
+                padding: 7px 20px;
+            }
+            .contact-right form{
+                width: 100%;
+            }
+            form input, form textarea{
+                width: 100%;
+                border: 0;
+                outline: none;
+                background: #262626;
+                padding: 15px;
+                margin: 15px 0;
+                color: #fff;
+                font-size: 18px;
+                border-radius: 6px;
+            }
+            form .btn2{
+                  padding: 14px 60px;
+                  font-size: 18px;
+                  margin-top: 20px;
+                  cursor: pointer;
+            }
+            .copyright{
+                width: 100%;
+                text-align: center;
+                padding: 25px 0;
+                background: #262626;
+                font-weight: 300;
+                margin-top: 20px;
+            }
+        </style>     
+        <script src="https://kit.fontawesome.com/79a06a9acc.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div id="header">
+            <div class="container">
+                <nav>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="#">Skills</a></li>
+                        <li><a href="#">Qualification</a></li>
+                        <li><a href="#">Hobbies</a></li>
+                    </ul>
+                </nav>
+                <div class="header-text">
+                    <p>Machine Learning, Data Science</p>
+                    <h1>Hello there! I am <span>Pruthviraj</span></h1>
+                </div>
+            </div>
+
+        </div>
+        <!-- ---------------------------------------------------about------------------------------------------------------- -->
+        <div id="About">
+            <div class="container">
+                <div class="row">
+                    <div class="about-col-1">
+                        <img src="pru.jpeg">
+                    </div>
+                    <div class="about-col-2">
+                        <h1 class="sub-title">About Me</h1>
+                        <p>I am an enthusiastic, reliable, self-motivated, responsible and hard working person.I am adaptable to all chellenging situation.<br>
+                            I am a team worker and i work well under pressure and
+                            adhere to strict deadlines.</p>
+                            <div class="tab-titles">
+                                <p class="tab-links active-link" onclick= "opentab('Languages I KNOW')">LANGUAGES I KNOW</p>
+                                <p class="tab-links" onclick= "opentab('Qualification')">Qualification</p>
+                                <p class="tab-links" onclick= "opentab('Hobbies')">Hobbies</p>
+                            </div>
+                            <div class="tab-contents active-tab" id="Skills">
+                                <ul>
+                                    <li><span>JAVA</span></li>
+                                    <li><span>PYTHONE</span></li>
+                                    <li><span>SQL</span></li>
+                                </ul>
+                            </div>
+                            <div class="tab-contents" id="Qualification">
+                                <ul>
+                                    <li><span>2017-2018</span><br>10th GSEB 73%</li>
+                                    <li><span>2019-2020</span><br>12th GHSEB 65%</li>
+                                    <li><span>(2020 - Currently Pursuing)</span><br>B.E in Computer Engineering</li>
+                                </ul>
+                            </div>
+                            <div class="tab-contents" id="Hobbies">
+                                <ul>
+                                    <li><span>CRICKET</span></li>
+                                    <li><span>VIDEO GAMES</span></li>
+                                    <li><span>ANIME</span></li>
+                                </ul>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- -------------------------------------------------------Information------------------------------------------- -->
+        <div id="information">
+            <div class="container">
+                <h1 class="sub-title">Skills</h1>
+                <div class="info">
+                    <div>
+                        <i class="fa-brands fa-java fa-beat-fade fa-2xl"></i>
+                        <h2> JAVA</h2>
+                        <p> Java is one of my core strongest language. I have done a lot of mini projects on my own and very eager to dive in and learn more new and exciting things.</p>
+                    </div>
+                   <div>
+                    <i class="fa-brands fa-python fa-beat-fade fa-2xl"></i>
+                    <h2>Python</h2>
+                    <p> Python is one of my core strongest language. I have done a lot of mini projects on my own and very eager to dive in and learn more new and exciting things.</p>
+                   </div>
+                   <div>
+                    <i class="fa-sharp fa-solid fa-database"></i>
+                    <h2>SQL(Beginner)</h2>
+                    <p><p> SQL is one of my core strongest language. I have done a lot of mini projects on my own and very eager to dive in and learn more new and exciting things.</p></p>
+                   </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- -----------------------------------------------------portfolio----------------------------------------------------------->
+        <div id="portfolio">
+            <div class="container">
+                <h1 class="sub-title">My Work</h1>
+                <div class="project-list">
+                     <div class="projects">
+                        <div>
+                            <i class="fa-light fa-dice"></i>
+                            <a href='https://laptoppricepredictor-pc.streamlit.app/' style = color:white;text-decoration: none;;font-size: 18px;position: relative;><h2> LaptopPricePredictor</h2></a>
+                            <p> This project is a Machine Learning project. LaptopPricePredictor system provides price of the given configuration. Accuracy of this model is around 90%.
+                                I have uploaded my full project on my github repository.
+                            </p>
+                        </div>
+                        <div>
+                            <i class="fa-duotone fa-sack-dollar fa-flip" style="--fa-primary-color: #2e2929; --fa-secondary-color: #e9cd16;"></i>
+                            <h2><a href='https://movierecommendersystem-pc.streamlit.app/' style = color:white;text-decoration: none;;font-size: 18px;position: relative;>  MoviesRecommenderSystem </a></h2>
+                            <p>This project is a Machine Learning project. This system recommends you five movies that is related to the selected movies. You can check out my porject on
+                                Github.
+                            </p>
+                        </div>
+                        <div>
+                            <i class="fa-regular fa-face-tongue-money"></i>
+                            <h2> <a href="/" style = color:white;text-decoration: none;;font-size: 18px;position: relative;>Django website</a></h2>
+                            <p> This is a website that is developed through Django framework. This project is uploaded on my github account.</p>
+                        </div>
+                     </div>
+                     
+                </div>
+            </div>
+        </div>
+
+        <!-- ---------------------------------------------------- Contact------------------------------------------------------------ -->
+        <div id="contact">
+            <div class="container">
+                <div class="row">
+                    <div class="contacts-left">
+                        <h1 class="sub-title">Contact Me</h1>
+                        <p><i class="fa-solid fa-paper-plane"></i>itsmepruthvirajchauhan@gmail.com</p>
+                        <p><i class="fa-sharp fa-regular fa-phone"></i>7046125293</p>
+                        <div class="social-icons">
+                            <a href=""><i class="fa-brands fa-github"></i></a>
+                            <a href="https://www.linkedin.com/in/pruthviraj-chauhan-088311251/"><i class="fa-brands fa-linkedin"></i></a>
+                        </div>
+                        <a href="" class="btn btn2">Download CV</a>
+                    </div>
+                    <div class="contacts-right">
+                        <form >
+                            <input type="text" name="Name" placeholder="Your Name" required>
+                            <input type="email" name="email" placeholder="Your mail" required>
+                            <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                            <button type="submit" class="btn btn2">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>Copyright @ Pruthviraj.</p>
+            </div>
+        </div>
+        
+        <script>
+                var tablinks = document.getElementsByClassName("tab-links")
+                var tabcontents = document.getElementsByClassName("tab-contents")
+
+                function opentab(tabname){
+                    for(tablink of tablinks){
+                        tablink.classList.remove("active-link");
+                    }
+                    
+                    for(tabcontent of tabcontents){
+                        tabcontent.classList.remove("active-tab");
+                    }
+                    event.currentTarget.classList.add("active-link");
+                    document.getElementById(tabname).classList.add("active-tab");
+                }
+        </script>
+        
+    </body>
+</html>
